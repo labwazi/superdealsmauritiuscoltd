@@ -1,156 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rental Application - Emamdin Wassim</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Inquiry - Chill Tech</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
-    body { font-family: Arial, sans-serif; background: #f7f7f7; padding: 40px; }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(#0f0c29, #302b63, #24243e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
-    h1 { text-align: center; color: #333; }
-    label { font-weight: bold; margin-top: 20px; display: block; }
-    input, textarea {
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00ffe7;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 30px;
-      padding: 12px 20px;
-      background-color: #007bff;
-      color: white;
+      border-radius: 10px;
       border: none;
-      border-radius: 6px;
-      font-size: 1em;
+      outline: none;
+      background-color: #111;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      box-shadow: 0 0 10px #00ffe7;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #00ffe7;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
+      transition: background 0.3s;
     }
-    button:hover { background-color: #0056b3; }
-    .whatsapp {
-      margin-top: 15px;
-      text-align: center;
+
+    button:hover {
+      background-color: #00bfa6;
     }
-    .whatsapp a {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #25d366;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <form class="form-container" id="rentalForm">
+    <h2>Long-Term Rental Inquiry</h2>
 
-<div class="container">
-  <h1>Rental Application Form</h1>
-  <p style="text-align: center;">Broker: <strong>Emamdin Wassim</strong></p>
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required>
 
-  <form id="rentalForm">
-    <label>Tenant 1 Full Name</label>
-    <input type="text" id="tenant1Name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-    <label>Tenant 1 Current Address</label>
-    <input type="text" id="tenant1Address" required>
+    <label for="phone">Phone Number (incl. country code):</label>
+    <input type="tel" id="phone" name="phone" required>
 
-    <label>Tenant 1 Work / Income</label>
-    <input type="text" id="tenant1Work" required>
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" name="nationality" required>
 
-    <label>Tenant 2 Full Name</label>
-    <input type="text" id="tenant2Name" required>
+    <label for="residencyStatus">Residency Status:</label>
+    <select id="residencyStatus" name="residencyStatus" required>
+      <option value="">-- Select --</option>
+      <option value="resident">Mauritian Resident</option>
+      <option value="expat">Expat (with permit)</option>
+      <option value="foreigner">Foreigner (relocating)</option>
+    </select>
 
-    <label>Tenant 2 Current Address</label>
-    <input type="text" id="tenant2Address" required>
+    <label for="rentalType">Property Type:</label>
+    <select id="rentalType" name="rentalType" required>
+      <option value="">-- Select --</option>
+      <option value="apartment">Apartment</option>
+      <option value="house">House / Villa</option>
+      <option value="studio">Studio</option>
+      <option value="duplex">Duplex</option>
+    </select>
 
-    <label>Tenant 2 Work / Income</label>
-    <input type="text" id="tenant2Work" required>
+    <label for="bedrooms">Number of Bedrooms:</label>
+    <select id="bedrooms" name="bedrooms" required>
+      <option value="">-- Select --</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4+</option>
+    </select>
 
-    <label>Property Address (to rent)</label>
-    <input type="text" id="rentalProperty" required>
+    <label for="preferredLocation">Preferred Location(s):</label>
+    <input type="text" id="preferredLocation" name="preferredLocation" required>
 
-    <label>Monthly Rent (USD)</label>
-    <input type="number" id="monthlyRent" required>
+    <label for="budget">Monthly Budget (MUR):</label>
+    <input type="number" id="budget" name="budget" required>
 
-    <label>Security Deposit (USD)</label>
-    <input type="number" id="deposit" required>
+    <label for="startDate">Move-in Date:</label>
+    <input type="date" id="startDate" name="startDate" required>
 
-    <label>Lease Start Date</label>
-    <input type="date" id="leaseStart" required>
+    <label for="rentalDuration">Rental Duration:</label>
+    <select id="rentalDuration" name="rentalDuration" required>
+      <option value="">-- Select --</option>
+      <option value="6months">6 Months</option>
+      <option value="1year">1 Year</option>
+      <option value="2years">2+ Years</option>
+    </select>
 
-    <label>Lease End Date (1 year)</label>
-    <input type="date" id="leaseEnd" required>
+    <label for="otherDetails">Other Requirements:</label>
+    <textarea id="otherDetails" name="otherDetails" rows="4" placeholder="e.g. Furnished, pet-friendly, pool, etc."></textarea>
 
-    <label>Emergency Contact (name + phone)</label>
-    <input type="text" id="emergencyContact" required>
-
-    <label>Tenant 1 Signature</label>
-    <input type="text" id="signature1" required>
-
-    <label>Tenant 2 Signature</label>
-    <input type="text" id="signature2" required>
-
-    <button type="button" onclick="generatePDF()">Download Rental Contract PDF</button>
+    <button type="button" onclick="sendToWhatsApp()">Submit Inquiry via WhatsApp</button>
   </form>
 
-  <div class="whatsapp" id="whatsappLink" style="display:none;">
-    <p>✅ PDF Ready! Send it to Emamdin Wassim on WhatsApp:</p>
-    <a id="waBtn" target="_blank">Send via WhatsApp</a>
-  </div>
-</div>
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const nationality = document.getElementById('nationality').value;
+      const status = document.getElementById('residencyStatus').value;
+      const type = document.getElementById('rentalType').value;
+      const bedrooms = document.getElementById('bedrooms').value;
+      const location = document.getElementById('preferredLocation').value;
+      const budget = document.getElementById('budget').value;
+      const startDate = document.getElementById('startDate').value;
+      const duration = document.getElementById('rentalDuration').value;
+      const notes = document.getElementById('otherDetails').value;
 
-<script>
-  async function generatePDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+      const message = `Rental Inquiry:%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ANationality: ${nationality}%0AStatus: ${status}%0AProperty: ${type}%0ABedrooms: ${bedrooms}%0ALocation: ${location}%0ABudget (MUR): ${budget}%0AMove-in: ${startDate}%0ADuration: ${duration}%0AOther: ${notes}`;
 
-    const t1 = document.getElementById("tenant1Name").value;
-    const t1Addr = document.getElementById("tenant1Address").value;
-    const t1Work = document.getElementById("tenant1Work").value;
-    const t2 = document.getElementById("tenant2Name").value;
-    const t2Addr = document.getElementById("tenant2Address").value;
-    const t2Work = document.getElementById("tenant2Work").value;
-    const property = document.getElementById("rentalProperty").value;
-    const rent = document.getElementById("monthlyRent").value;
-    const deposit = document.getElementById("deposit").value;
-    const leaseStart = document.getElementById("leaseStart").value;
-    const leaseEnd = document.getElementById("leaseEnd").value;
-    const emergency = document.getElementById("emergencyContact").value;
-    const sig1 = document.getElementById("signature1").value;
-    const sig2 = document.getElementById("signature2").value;
+      // Replace with your WhatsApp number
+      const whatsappNumber = '23059237053';
 
-    doc.setFontSize(14);
-    doc.text("RENTAL AGREEMENT FORM", 20, 20);
-    doc.setFontSize(11);
-    doc.text(`Broker: Emamdin Wassim`, 20, 30);
-
-    doc.text(`\nTENANT 1:\nName: ${t1}\nAddress: ${t1Addr}\nWork: ${t1Work}`, 20, 40);
-    doc.text(`\nTENANT 2:\nName: ${t2}\nAddress: ${t2Addr}\nWork: ${t2Work}`, 20, 80);
-    doc.text(`\nPROPERTY RENTED:\n${property}`, 20, 120);
-    doc.text(`\nRENT: $${rent} / month\nSecurity Deposit: $${deposit}`, 20, 135);
-    doc.text(`\nLEASE PERIOD:\nStart: ${leaseStart}\nEnd: ${leaseEnd}`, 20, 150);
-    doc.text(`\nEmergency Contact:\n${emergency}`, 20, 170);
-    doc.text(`\nSIGNATURES:\nTenant 1: ${sig1}\nTenant 2: ${sig2}`, 20, 190);
-
-    doc.text(`\nIMPORTANT:\nBy signing, both tenants agree to:\n- Pay rent on time\n- Respect lease duration\n- Accept responsibility for damages or unpaid rent\n- Contact Emamdin Wassim for issues`, 20, 220);
-
-    doc.save("Rental_Contract.pdf");
-
-    const waMsg = `Hello Emamdin, we completed the rental form for:\n${property}\nTenants: ${t1} & ${t2}\nLease: ${leaseStart} to ${leaseEnd}\nMonthly: $${rent}\nContract PDF is attached.`;
-    const waLink = `https://wa.me/23059237053?text=${encodeURIComponent(waMsg)}`;
-    document.getElementById("whatsappLink").style.display = "block";
-    document.getElementById("waBtn").href = waLink;
-  }
-</script>
-
+      window.open(`https://wa.me/${59237053}?text=${message}`, '_blank');
+    }
+  </script>
 </body>
 </html>
