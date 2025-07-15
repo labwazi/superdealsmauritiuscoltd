@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Tech | AC Sales & Servicing in Mauritius</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d7bff;
+            --secondary: #00c6ff;
+            --accent: #00ffd5;
+            --dark: #0a192f;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #0c2541 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin: 0;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(13, 123, 255, 0.4);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 123, 255, 0.6);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 198, 255, 0.1) 0%, rgba(10, 25, 47, 0) 70%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text h2 span {
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(13, 123, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 123, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(0, 255, 213, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+        
+        .card-header p {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .card-content {
+            margin-bottom: 25px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 30px;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            color: var(--secondary);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .feature {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(13, 123, 255, 0.1) 0%, rgba(0, 198, 255, 0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 255, 213, 0.3);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 15px 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+        
+        .service-card ul li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--accent);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-img {
+            height: 200px;
+            background: linear-gradient(135deg, #1a3a5f, #0a192f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--accent);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-features {
+            margin: 15px 0;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .product-features li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 255, 213, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-content p {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .client-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .client-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin: 0;
+            font-style: normal;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 70px 0 30px;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-list li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(10, 25, 47, 0.95);
+                width: 70%;
+                height: calc(100vh - 70px);
+                padding: 20px;
+                transition: right 0.3s ease;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>CHILL<span>TECH</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="contact-btn">Book Service</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Professional <span>AC Solutions</span> for Mauritius</h2>
+                <p>Chill Tech provides premium air conditioning sales, installation, and maintenance services across Mauritius. Keeping your spaces cool and comfortable year-round.</p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="#products" class="btn btn-secondary">View Products</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>DILSHAD</h3>
+                        <p>Lead Technician</p>
+                    </div>
+                    <div class="card-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>+230 54956945</div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>+230 59013225</div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>Service provider all around Mauritius</div>
+                            </div>
+                        </div>
+                        <div class="tagline">
+                            <p>"Keeping you cool, no matter the heat."</p>
+                        </div>
+                        <div class="features">
+                            <div class="feature">Reliable</div>
+                            <div class="feature">Fast</div>
+                            <div class="feature">Affordable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span>Services</span></h2>
+                <p>Professional AC solutions at competitive prices</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>AC Servicing</h3>
+                    <p>Comprehensive maintenance to keep your AC running efficiently</p>
+                    <div class="price">MUR800 - MUR2,500 <span>per unit</span></div>
+                    <ul>
+                        <li>Full system diagnostics</li>
+                        <li>Coil cleaning & maintenance</li>
+                        <li>Filter replacement</li>
+                        <li>Performance optimization</li>
+                        <li>Electrical component check</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Gas Refilling</h3>
+                    <p>Professional refrigerant refills for all AC types</p>
+                    <div class="price">MUR1,500 - MUR4,000 <span>per unit</span></div>
+                    <ul>
+                        <li>R22, R32, R410A refrigerants</li>
+                        <li>Leak detection & repair</li>
+                        <li>Pressure testing</li>
+                        <li>Environmentally compliant</li>
+                        <li>24/7 emergency service</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Repair & Maintenance</h3>
+                    <p>Expert repairs for all AC issues</p>
+                    <div class="price">MUR1,000+ <span>depending on issue</span></div>
+                    <ul>
+                        <li>PCB repairs</li>
+                        <li>Compressor issues</li>
+                        <li>Fan motor replacement</li>
+                        <li>Electrical troubleshooting</li>
+                        <li>Annual maintenance contracts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium <span>AC Units</span></h2>
+                <p>Top-quality air conditioners for every need</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>LG Dual Inverter 1.5 Ton</h3>
+                        <p>Energy-efficient split AC with advanced cooling technology</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> 18,000 BTU Cooling</li>
+                            <li><i class="fas fa-check-circle"></i> Energy Star Certified</li>
+                            <li><i class="fas fa-check-circle"></i> Wi-Fi Smart Control</li>
+                            <li><i class="fas fa-check-circle"></i> 5-Year Warranty</li>
+                        </ul>
+                        <div class="product-price">
+                            <div class="price-tag">MUR38,500</div>
+                            <a href="#contact" class="btn btn-secondary">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>LG Window AC 1 Ton</h3>
+                        <p>Compact solution for small to medium-sized rooms</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> 12,000 BTU Cooling</li>
+                            <li><i class="fas fa-check-circle"></i> Easy Installation</li>
+                            <li><i class="fas fa-check-circle"></i> Low Noise Operation</li>
+                            <li><i class="fas fa-check-circle"></i> 3-Year Warranty</li>
+                        </ul>
+                        <div class="product-price">
+                            <div class="price-tag">MUR22,900</div>
+                            <a href="#contact" class="btn btn-secondary">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>LG ArtCool 2 Ton</h3>
+                        <p>Premium AC with artistic design for modern spaces</p>
+                        <ul class="product-features">
+                            <li><i class="fas fa-check-circle"></i> 24,000 BTU Cooling</li>
+                            <li><i class="fas fa-check-circle"></i> Modern Gallery Design</li>
+                            <li><i class="fas fa-check-circle"></i> 4-Way Airflow</li>
+                            <li><i class="fas fa-check-circle"></i> 7-Year Warranty</li>
+                        </ul>
+                        <div class="product-price">
+                            <div class="price-tag">MUR55,000</div>
+                            <a href="#contact" class="btn btn-secondary">Inquire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer <span>Testimonials</span></h2>
+                <p>What our clients say about our services</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Chill Tech provided excellent service when my AC broke down in the middle of summer. Dilshad arrived promptly and fixed the issue at a reasonable price. Highly recommended!"</p>
+                        <div class="client">
+                            <div class="client-img">RK</div>
+                            <div class="client-info">
+                                <h4>Raj K.</h4>
+                                <p>Port Louis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"We purchased three LG units from Chill Tech for our office. The installation was professional and the team was very knowledgeable. Their after-sales service is exceptional."</p>
+                        <div class="client">
+                            <div class="client-img">SP</div>
+                            <div class="client-info">
+                                <h4>Sarah P.</h4>
+                                <p>Curepipe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I've been using Chill Tech's maintenance service for two years now. They're reliable, punctual, and do a thorough job every time. Worth every rupee for peace of mind."</p>
+                        <div class="client">
+                            <div class="client-img">JM</div>
+                            <div class="client-info">
+                                <h4>Jean M.</h4>
+                                <p>Grand Baie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Chill Tech</h4>
+                    <p>Your trusted partner for premium air conditioning solutions in Mauritius. We provide sales, installation, and maintenance services for residential and commercial clients.</p>
+                    <div class="social-links">
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/YourPageUsername" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/YourInstagramHandle" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/23054956945?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>+230 54956945<br>+230 59013225</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Service provider all around Mauritius</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>info@chilltech.mu</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>Mon-Sat: 8:00 AM - 6:00 PM<br>Sun: Emergency Service Only</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Service Areas</h4>
+                    <ul class="service-areas">
+                        <li><i class="fas fa-check"></i> All regions of Mauritius</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Chill Tech. All Rights Reserved. | "Keeping you cool, no matter the heat."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 25, 47, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(10, 25, 47, 0.95)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            }
+        });
+    </script>
+</body>
+</html>
